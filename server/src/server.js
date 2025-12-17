@@ -30,18 +30,20 @@ app.get("/health", (req, res) => {
 
 app.use("/api/inngest", serve({ client: inngest, functions }));
 
-const startServer = async () => {
-  try {
-    app.listen(PORT, "0.0.0.0", () => {
-      logger.info(`Server is running on port ${PORT}`);
-    });
-    await connectDB();
-  } catch (error) {
-    logger.error(`Failed to start server: ${error.message}`);
-    process.exit(1);
-  }
-};
+if (ENV.NODE_ENV === "development") {
+  const startServer = async () => {
+    try {
+      app.listen(PORT, "0.0.0.0", () => {
+        logger.info(`Server is running on port ${PORT}`);
+      });
+      await connectDB();
+    } catch (error) {
+      logger.error(`Failed to start server: ${error.message}`);
+      process.exit(1);
+    }
+  };
 
-startServer();
+  startServer();
+}
 
 export default app;
