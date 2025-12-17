@@ -1,4 +1,10 @@
 import React, { useCallback, useState } from "react";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignOutButton,
+} from "@clerk/clerk-react";
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -13,6 +19,13 @@ const App = () => {
         Count : {count}
       </button>
       <Child onClick={click} />
+      <SignedOut>
+        <SignInButton mode="modal" />
+      </SignedOut>
+
+      <SignedIn>
+        <SignOutButton mode="modal" />
+      </SignedIn>
     </div>
   );
 };
