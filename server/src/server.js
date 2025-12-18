@@ -1,6 +1,6 @@
 import "dotenv/config";
 import express from "express";
-// import cors from "cors";
+import cors from "cors";
 import { ENV } from "./lib/env.js";
 // import connectDB from "./config/db_config.js";
 // import logger from "./utils/logger.js";
@@ -12,7 +12,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use(cors({ origin: "*", credentials: true }));
+app.use(cors({ origin: "*", credentials: true }));
 
 // // DB connect per request (serverless-safe)
 // app.use(async (req, res, next) => {
