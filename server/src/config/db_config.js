@@ -2,8 +2,6 @@ import mongoose from "mongoose";
 import { ENV } from "../lib/env.js";
 import logger from "../utils/logger.js";
 
-let isConnected = false;
-
 const MONGO_URL = ENV.MONGO_URL;
 
 if (!MONGO_URL) {
@@ -14,14 +12,16 @@ if (!MONGO_URL) {
 }
 
 const connectDB = async () => {
-  if (isConnected) return;
+  if(mongoose.connection.readyState === 1) return; 
   try {
-    const conn = await mongoose.connect(ENV.MONGO_URL);
-    isConnected = true;
+    const conn = await mongoose.connect(ENV.MONGO_URL, {
+      autoIndex: false
+    });
     logger.info(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
     logger.error(`Error: ${error.message}`);
-    process.exit(1); // 0 means success, 1 means failure
+    // process.exit(1); // 0 means success, 1 means failure
+    throw new Error("Could not connect to database");
   }
 };
 

@@ -14,18 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: "*", credentials: true }));
 
-// DB connect per request (serverless-safe)
-app.use(async (req, res, next) => {
-  try {
-    await connectDB();
-    next();
-  } catch (err) {
-    next(err);
-  }
-});
-
-
-// // app.use(clerkMiddleware());
+// app.use(clerkMiddleware());
 
 app.get("/", (req,res) => {
   res.send("Welcome to the server!");
@@ -35,7 +24,7 @@ app.get("/health", (req, res) => {
   res.send("Server is healthy!");
 });
 
-// // Inngest
+// Inngest
 app.use("/api/inngest", serve({ client: inngest, functions }));
 
 // // Local development only
@@ -45,5 +34,7 @@ app.use("/api/inngest", serve({ client: inngest, functions }));
 //     logger.info(`Server running on port ${PORT}`);
 //   });
 // }
+
+await connectDB();
 
 export default app;
