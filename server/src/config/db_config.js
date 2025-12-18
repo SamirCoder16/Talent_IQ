@@ -8,15 +8,12 @@ if (!MONGO_URL) {
   logger.error(
     "MongoDB connection string is not defined in environment variables."
   );
-  process.exit(1);
+  throw new Error("MongoDB connection string is missing.");
 }
 
 const connectDB = async () => {
-  if(mongoose.connection.readyState === 1) return; 
   try {
-    const conn = await mongoose.connect(ENV.MONGO_URL, {
-      autoIndex: false
-    });
+    const conn = await mongoose.connect(ENV.MONGO_URL);
     logger.info(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
     logger.error(`Error: ${error.message}`);
