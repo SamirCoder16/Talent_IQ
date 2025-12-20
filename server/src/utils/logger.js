@@ -1,11 +1,6 @@
 import winston from "winston";
-import path from "path";
-import fs from "fs";
 
-const logDir = "logs";
-if (!fs.existsSync(logDir)) {
-  fs.mkdirSync(logDir);
-}
+const isProd = process.env.NODE_ENV === "production";
 
 const colors = {
   error: "red",
@@ -19,52 +14,38 @@ const colors = {
 
 winston.addColors(colors);
 
-const logFormat = winston.format.printf(({ timestamp, level, message }) => {
-  return `${timestamp} [${level}]: ${message}`;
-});
+const logFormat = winston.format.printf(
+  ({ timestamp, level, message }) =>
+    `${timestamp} [${level}]: ${message}`
+);
 
-const logger = winston.createLogger({
-  level: "silly",
-  format: winston.format.combine(
-    winston.format.timestamp({ format: "YYYY-MM-DD HH:mm:ss A" })
-  ),
+const transports = [
+  new winston.transports.Console({
+    format: winston.format.combine(
+      winston.format.colorize({ all: true }),
+      winston.format.timestamp({ format: "YYYY-MM-DD HH:mm:ss A" }),
+      logFormat
+    ),
+  }),
+];
 
-  transports: [
-    // Console transport & for all logs levels
+// ❗ ONLY LOCAL / DEV
+if (!isProd) {
+  transports.push(
     new winston.transports.File({
-      filename: path.join(logDir, "all.log"),
+      filename: "logs/all.log",
       level: "silly",
-      format: winston.format.combine(winston.format.uncolorize(), logFormat),
-    }),
-    // Error file logs
-    new winston.transports.File({
-      filename: path.join(logDir, "error.log"),
-      level: "error",
-      format: winston.format.combine(winston.format.uncolorize(), logFormat),
-    }),
-    // Info file logs
-    new winston.transports.File({
-      filename: path.join(logDir, "info.log"),
-      level: "info",
-      format: winston.format.combine(winston.format.uncolorize(), logFormat),
-    }),
-    // Warn file logs
-    new winston.transports.File({
-      filename: path.join(logDir, "warn.log"),
-      level: "warn",
-      format: winston.format.combine(winston.format.uncolorize(), logFormat),
-    }),
-
-    // for Console out put
-    new winston.transports.Console({
       format: winston.format.combine(
-        winston.format.colorize({ all: true }),
         winston.format.timestamp({ format: "YYYY-MM-DD HH:mm:ss A" }),
         logFormat
       ),
-    }),
-  ],
-});
+    })
+  );
+}
 
+const logger = winston.createLogger({
+  level: "silly",
+  transports,
+});
 
 export default logger;
