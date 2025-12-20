@@ -1,5 +1,6 @@
 import { Inngest } from "inngest";
 import User from "../models/user_model.js";
+import { upsertStreamUser, deleteStreamUser } from "../config/stream_config.js";
 
 export const inngest = new Inngest({ id: "talent-iq" });
 
@@ -18,7 +19,12 @@ const createUser = inngest.createFunction(
     };
     await User.create(newUser);
 
-    //  to do : create user in Stream Chat .
+    //  Create Stream User .
+    await upsertStreamUser({
+      id: newUser.clerkId,
+      name: newUser.name,
+      image: newUser.profileImage
+    });
   }
 );
 
@@ -28,9 +34,10 @@ const deleteUser = inngest.createFunction(
   async ({ event }) => {
     const { id } = event.data;
     await User.findOneAndDelete({ clerkId: id });
-
-    // to do : delete user in Stream Chat .
+    //  Delete Stream User .
+    await deleteStreamUser(id.toString());
   }
 );
+
 
 export const functions = [createUser, deleteUser];

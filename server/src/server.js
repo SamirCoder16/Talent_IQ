@@ -6,7 +6,7 @@ import cors from "cors";
 import { ENV } from "./lib/env.js";
 import connectDB from "./config/db_config.js";
 import logger from "./utils/logger.js";
-// // import { clerkMiddleware } from "@clerk/express";
+// import { clerkMiddleware } from "@clerk/express";
 import { serve } from "inngest/express";
 import { inngest, functions } from "./lib/inngest.js";
 
