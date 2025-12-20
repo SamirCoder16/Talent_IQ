@@ -5,6 +5,7 @@ import {
   SignInButton,
   SignOutButton,
 } from "@clerk/clerk-react";
+import Snowfall from "react-snowfall";
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -14,7 +15,12 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <div className="h-screen w-full bg-[#28282B] text-white">
+      <Snowfall
+        snowflakeCount={150} // ideal
+        speed={[0.5, 1.5]} // smooth
+        wind={[-0.5, 1.5]}
+      />
       <button onClick={() => setCount((prev) => prev + 1)}>
         Count : {count}
       </button>
