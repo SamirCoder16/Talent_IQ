@@ -1,4 +1,5 @@
 import { StreamChat } from "stream-chat";
+import { StreamClient } from "@stream-io/node-sdk";
 import { ENV } from "../lib/env.js";
 import logger from "../utils/logger.js";
 
@@ -9,7 +10,8 @@ if(!apikey || !apisecret) {
     throw new Error("Stream API key and secret must be set in enviroment variables.");
 }
 
-export const chatClient = StreamChat.getInstance(apikey, apisecret);
+export const streamClient = new StreamClient(apikey, apisecret); // this will be used for video calls
+export const chatClient = StreamChat.getInstance(apikey, apisecret); // this will be used for chat functionality
 
 export const upsertStreamUser = async (userData) => {
     try {
@@ -34,5 +36,3 @@ export const deleteStreamUser = async (userId) => {
         throw error;
     }
 }
-
-// TODO: to generate Token ;
