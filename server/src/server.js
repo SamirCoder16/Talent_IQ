@@ -9,6 +9,7 @@ import { clerkMiddleware } from "@clerk/express";
 import { serve } from "inngest/express";
 import { inngest, functions } from "./lib/inngest.js";
 import chatRoute from "./routes/chatRoute.js";
+import sessionRoute from './routes/sessionRoute.js';
 import morgan from "morgan";
 
 const app = express();
@@ -34,6 +35,7 @@ app.get("/health", (req, res) => {
 app.use("/api/inngest", serve({ client: inngest, functions }));
 
 app.use("/api/chat", chatRoute);
+app.use("/api/session", sessionRoute);
 
 // Local development only
 if (ENV.NODE_ENV === "developement") {
