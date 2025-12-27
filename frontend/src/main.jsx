@@ -21,9 +21,8 @@ createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
         <App />
+        <Toaster toastOptions={{ duration: 3000 }} />
       </QueryClientProvider>
-
-      <Toaster toastOptions={{ duration: 3000 }} />
     </BrowserRouter>
   </ClerkProvider>
 );
