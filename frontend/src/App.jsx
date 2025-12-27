@@ -1,44 +1,22 @@
-import React, { useCallback, useState } from "react";
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  SignOutButton,
-} from "@clerk/clerk-react";
-import Snowfall from "react-snowfall";
+import { Routes, Route, Navigate } from "react-router";
+import { lazy } from "react";
+import NotfoundPage from "./pages/NotfoundPage.jsx";
+import { useUser } from "@clerk/clerk-react";
+
+const Home = lazy(() => import("./pages/Home.jsx"));
+const ProblemPage = lazy(() => import("./pages/ProblemsPage.jsx"));
 
 const App = () => {
-  const [count, setCount] = useState(0);
-
-  const click = useCallback(() => {
-    console.log("Clicked");
-  }, []);
-
+  const { isSignedIn } = useUser();
   return (
-    <div className="h-screen w-full bg-[#28282B] text-white">
-      <Snowfall
-        snowflakeCount={150} // ideal
-        speed={[0.5, 1.5]} // smooth
-        wind={[-0.5, 1.5]}
-      />
-      <button onClick={() => setCount((prev) => prev + 1)}>
-        Count : {count}
-      </button>
-      <Child onClick={click} />
-      <SignedOut>
-        <SignInButton mode="modal" />
-      </SignedOut>
-
-      <SignedIn>
-        <SignOutButton mode="modal" />
-      </SignedIn>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/problems" element={ isSignedIn ? <ProblemPage /> : <Navigate to={"/"} />} />
+        <Route path="*" element={<NotfoundPage />} />
+      </Routes>
+    </>
   );
 };
-
-export const Child = React.memo(({ onClick }) => {
-  console.log("Child Re-rendered");
-  return <button onClick={onClick}>add</button>;
-});
 
 export default App;
