@@ -1,12 +1,18 @@
-import React from 'react';
+
+import Features from "../components/Features.jsx";
+import Hero from "../components/Hero.jsx";
+import Navbar from "../components/Navbar.jsx";
 
 const Home = () => {
   return (
-    <div>
-        This is the home page.
-        <button>Click me</button>
+    <div className="bg-linear-to-br from-base-100 via-base-200 to-base-300">
+      <Navbar />
+      {/* Hero Section */}
+      <Hero />
+      {/* Features SECTION */}
+      <Features />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
