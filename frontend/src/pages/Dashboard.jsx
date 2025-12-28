@@ -1,9 +1,9 @@
-import React from 'react'
+import NavbarForProblems from '../components/NavbarForProblems'
 
 const Dashboard = () => {
   return (
-    <div>
-        DashBoard
+    <div className='min-h-screen bg-base-200'>
+        <NavbarForProblems />
     </div>
   )
 }
