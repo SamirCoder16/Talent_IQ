@@ -2,10 +2,6 @@ import { Link } from "react-router";
 import {
   ArrowRightIcon,
   SparklesIcon,
-  ZapIcon,
-  CheckIcon,
-  ArrowRight,
-  VideoIcon,
 } from "lucide-react";
 import { SignInButton } from "@clerk/clerk-react";
 
