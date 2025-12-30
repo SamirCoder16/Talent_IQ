@@ -9,10 +9,12 @@ const LANGUAGE_VERSIONS = {
 };
 
 /**
- * @param {string} language - programming language
- * @param {string} code - source code to executed
- * @returns {Promise<{success:boolean, output?:string, error?: string}>}
- */
+ * Execute source code using the Piston API for a supported language.
+ *
+ * Sends the provided source to the remote execution service and returns a structured result.
+ * @param {string} language - Language key (e.g., "javascript", "python", "java"); must match a supported entry in LANGUAGE_VERSIONS.
+ * @param {string} code - Source code to execute.
+ * @returns {Promise<{success: boolean, output?: string, error?: string}>} `success` is `true` when execution completed without stderr; when `true`, `output` contains stdout or `"No output"` if empty. When `success` is `false`, `error` contains the failure reason and `output` may contain any captured stdout. */
 export async function executeCode(language, code) {
   try {
     const languageConfig = LANGUAGE_VERSIONS[language];
@@ -73,6 +75,12 @@ export async function executeCode(language, code) {
   }
 }
 
+/**
+ * Return the filename extension corresponding to a programming language.
+ *
+ * @param {string} language - The language identifier (e.g., "javascript", "python", "java").
+ * @returns {string} The file extension for the language (e.g., "js", "py", "java"), or "txt" if unknown.
+ */
 function getFileExtension(language) {
   const extensions = {
     javascript: "js",
