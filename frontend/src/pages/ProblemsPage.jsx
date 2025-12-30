@@ -112,9 +112,7 @@ const ProblemsPage = React.memo(() => {
 
               <div className="stat">
                 <div className="stat-title">Hard</div>
-                <div className="stat-value text-error">
-                  {HardProblemCount}
-                </div>
+                <div className="stat-value text-error">{HardProblemCount}</div>
               </div>
             </div>
           </div>
