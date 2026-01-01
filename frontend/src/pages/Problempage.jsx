@@ -9,7 +9,6 @@ import CodeEditor from "../components/CodeEditor";
 import { executeCode } from "../lib/piston.js";
 import toast from "react-hot-toast";
 import confetti from "canvas-confetti";
-
 const Problempage = () => {
   const { id } = useParams();
   const navigate = useNavigate();

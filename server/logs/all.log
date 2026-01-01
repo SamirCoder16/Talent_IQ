@@ -90,3 +90,78 @@
 2025-12-25 21:23:10 PM [info]: Server running on port 5000
 2025-12-26 19:17:11 PM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
 2025-12-26 19:17:11 PM [info]: Server running on port 5000
+2025-12-30 19:00:18 PM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2025-12-30 19:00:18 PM [info]: Server running on port 5000
+2025-12-30 19:20:50 PM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2025-12-30 19:20:50 PM [info]: Server running on port 5000
+2025-12-30 19:20:58 PM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2025-12-30 19:20:58 PM [info]: Server running on port 5000
+2025-12-30 19:21:25 PM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2025-12-30 19:21:25 PM [info]: Server running on port 5000
+2025-12-30 19:34:56 PM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2025-12-30 19:34:56 PM [info]: Server running on port 5000
+2025-12-30 19:39:25 PM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2025-12-30 19:39:25 PM [info]: Server running on port 5000
+2025-12-30 19:40:47 PM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2025-12-30 19:40:47 PM [info]: Server running on port 5000
+2025-12-30 19:40:56 PM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2025-12-30 19:40:57 PM [info]: Server running on port 5000
+2025-12-30 19:41:16 PM [error]: Error fetching active sessions: active is not defined
+2025-12-30 19:41:18 PM [error]: Error fetching active sessions: active is not defined
+2025-12-30 19:41:22 PM [error]: Error fetching active sessions: active is not defined
+2025-12-30 19:41:26 PM [error]: Error fetching active sessions: active is not defined
+2025-12-30 19:41:27 PM [error]: Error fetching active sessions: active is not defined
+2025-12-30 19:41:29 PM [error]: Error fetching active sessions: active is not defined
+2025-12-30 19:44:06 PM [error]: Error fetching active sessions: active is not defined
+2025-12-30 19:45:34 PM [error]: Error fetching active sessions: active is not defined
+2025-12-30 19:47:13 PM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2025-12-30 19:47:13 PM [info]: Server running on port 5000
+2025-12-30 20:17:39 PM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2025-12-30 20:17:39 PM [info]: Server running on port 5000
+2025-12-31 19:39:55 PM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2025-12-31 19:39:56 PM [info]: Server running on port 5000
+2026-01-01 10:17:38 AM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2026-01-01 10:17:38 AM [info]: Server running on port 5000
+2026-01-01 10:18:30 AM [error]: Error creating session: Cannot destructure property 'problem' of 'req.body' as it is undefined.
+2026-01-01 10:20:19 AM [error]: Error creating session: Cannot destructure property 'problem' of 'req.body' as it is undefined.
+2026-01-01 10:21:38 AM [error]: Error creating session: Cannot destructure property 'problem' of 'req.body' as it is undefined.
+2026-01-01 10:21:44 AM [error]: Error creating session: Cannot destructure property 'problem' of 'req.body' as it is undefined.
+2026-01-01 10:22:51 AM [error]: Error creating session: Cannot destructure property 'problem' of 'req.body' as it is undefined.
+2026-01-01 10:25:39 AM [error]: Error creating session: Cannot destructure property 'problem' of 'req.body' as it is undefined.
+2026-01-01 10:25:43 AM [error]: Error creating session: Cannot destructure property 'problem' of 'req.body' as it is undefined.
+2026-01-01 10:27:15 AM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2026-01-01 10:27:15 AM [info]: Server running on port 5000
+2026-01-01 10:28:26 AM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2026-01-01 10:28:26 AM [info]: Server running on port 5000
+2026-01-01 10:32:24 AM [error]: Error creating session: Cannot destructure property 'problem' of 'req.body' as it is undefined.
+2026-01-01 10:36:25 AM [error]: Error creating session: Stream error code 4: GetOrCreateCall failed with error: "either data.created_by or data.created_by_id must be provided when using server side auth."
+2026-01-01 10:44:46 AM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2026-01-01 10:44:46 AM [info]: Server running on port 5000
+2026-01-01 10:44:50 AM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2026-01-01 10:44:50 AM [info]: Server running on port 5000
+2026-01-01 10:46:36 AM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2026-01-01 10:46:36 AM [info]: Server running on port 5000
+2026-01-01 10:46:38 AM [error]: Error creating session: Stream error code 4: GetOrCreateCall failed with error: "either data.created_by or data.created_by_id must be provided when using server side auth."
+2026-01-01 10:47:02 AM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2026-01-01 10:47:02 AM [info]: Server running on port 5000
+2026-01-01 10:47:08 AM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2026-01-01 10:47:08 AM [info]: Server running on port 5000
+2026-01-01 10:47:17 AM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2026-01-01 10:47:17 AM [info]: Server running on port 5000
+2026-01-01 10:47:27 AM [error]: Error creating session: Stream error code 4: GetOrCreateCall failed with error: "either data.created_by or data.created_by_id must be provided when using server side auth."
+2026-01-01 10:48:00 AM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2026-01-01 10:48:00 AM [info]: Server running on port 5000
+2026-01-01 10:48:02 AM [error]: Error creating session: Stream error code 4: GetOrCreateCall failed with error: "either data.created_by or data.created_by_id must be provided when using server side auth."
+2026-01-01 10:50:30 AM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2026-01-01 10:50:30 AM [info]: Server running on port 5000
+2026-01-01 10:51:46 AM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2026-01-01 10:51:46 AM [info]: Server running on port 5000
+2026-01-01 10:52:00 AM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2026-01-01 10:52:00 AM [info]: Server running on port 5000
+2026-01-01 10:52:08 AM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2026-01-01 10:52:08 AM [info]: Server running on port 5000
+2026-01-01 10:52:23 AM [error]: Error creating session: Please specify atleast one member when creating unique conversation
+2026-01-01 10:56:44 AM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2026-01-01 10:56:44 AM [info]: Server running on port 5000
+2026-01-01 10:57:07 AM [info]: MongoDB Connected: ac-bnyjmjh-shard-00-00.dzvzd6p.mongodb.net
+2026-01-01 10:57:07 AM [info]: Server running on port 5000
