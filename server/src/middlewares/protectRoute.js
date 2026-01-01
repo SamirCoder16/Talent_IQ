@@ -7,7 +7,7 @@ export const protectRoute = [
     async (req,res,next) => {
         try {
             const clerkId = req.auth().userId;
-            if(clerkId) return res.status(401).json({ message: "Unauthorized: No Clerk ID found." });
+            if(!clerkId) return res.status(401).json({ message: "Unauthorized: No Clerk ID found." });
 
             const user = await User.findOne({ clerkId });
             if(!user) {

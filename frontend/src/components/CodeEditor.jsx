@@ -58,7 +58,7 @@ const CodeEditor = ({
         <Editor
           height={"100%"}
           language={LANGUAGE_CONFIG[selectedLanguage].monacoLang}
-          defaultValue={code}
+          value={code}
           onChange={onCodeChange}
           theme="vs-dark"
           options={{
