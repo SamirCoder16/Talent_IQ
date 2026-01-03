@@ -57,6 +57,7 @@ const Problempage = () => {
       .map((line) =>
         line
           .trim()
+          .replace(/'/g, '"')  // standardize quotes
           // remove spaces after [ and before ]
           .replace(/\[\s+/g, "[")
           .replace(/\s+\]/g, "]")
@@ -68,6 +69,8 @@ const Problempage = () => {
   };
 
   const chackIfTestsPassed = (actualOutput, expectedOutput) => {
+    console.log("Actual Output:", actualOutput);
+    console.log("Expected Output:", expectedOutput);
     const normalizedActualOutput = normalizeOutput(actualOutput);
     const normalizedExpectedOutput = normalizeOutput(expectedOutput);
     return normalizedActualOutput === normalizedExpectedOutput;

@@ -90,7 +90,7 @@ export async function getSessionById(req, res) {
 
     const session = await Session.findById(id)
       .populate("host", "name email profileImage clerkId")
-      .populate("participant", "name email profileImage clerkId");
+      .populate("participants", "name email profileImage clerkId");
 
     if (!session) return res.status(404).json({ message: "Session not found" });
 
@@ -112,22 +112,17 @@ export async function joinSession(req, res) {
     if (!session) return res.status(404).json({ message: "Session not found" });
 
     if (session.status !== "active") {
-      return res
-        .status(400)
-        .json({ message: "Cannot join a completed session" });
+      return res.status(400).json({ message: "Cannot join a completed session" });
     }
 
     if (session.host.toString() === userId.toString()) {
-      return res
-        .status(400)
-        .json({ message: "Host cannot join their own session as participant" });
+      return res.status(400).json({ message: "Host cannot join their own session as participant" });
     }
 
     // check if session is already full - has a participant
-    if (session.participant)
-      return res.status(409).json({ message: "Session is full" });
+    if (session.participants) return res.status(409).json({ message: "Session is full" });
 
-    session.participant = userId;
+    session.participants = userId;
     await session.save();
 
     const channel = chatClient.channel("messaging", session.callId);
