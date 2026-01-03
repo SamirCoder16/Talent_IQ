@@ -10,7 +10,7 @@ import {
 } from "../controllers/sessionController.js";
 
 const sessionRoute = express.Router();
-
+2
 sessionRoute.post("/", protectRoute, createSession);
 sessionRoute.get("/active", protectRoute, getActiveSessions);
 sessionRoute.get("/my-recent", protectRoute, getMyRecentSessions);

@@ -5,6 +5,7 @@ import { useUser } from "@clerk/clerk-react";
 import Loader from "./components/Loader.jsx";
 import MobilePage from "./pages/MobilePage.jsx";
 import { useIsMobile } from "./hooks/useDevice.js";
+import SessionPage from "./pages/SessionPage.jsx";
 
 const Home = lazy(() => import("./pages/Home.jsx"));
 const ProblemPage = lazy(() => import("./pages/ProblemsPage.jsx"));
@@ -12,7 +13,6 @@ const Dashboard = lazy(() => import("./pages/Dashboard.jsx"));
 const IndivisualProblem = lazy(() => import("./pages/Problempage.jsx"));
 
 const App = () => {
-
   const { isSignedIn, isLoaded } = useUser();
   const isMobile = useIsMobile();
 
@@ -62,6 +62,14 @@ const App = () => {
             ) : (
               <Navigate to={"/"} />
             )
+          }
+        />
+        <Route
+          path="/session/:id"
+          element={
+            <Suspense fallback={<Loader />}>
+              {isSignedIn ? <SessionPage /> : <Navigate to="/" />}
+            </Suspense>
           }
         />
         <Route path="*" element={<NotfoundPage />} />
