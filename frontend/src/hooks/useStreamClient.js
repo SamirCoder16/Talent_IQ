@@ -26,8 +26,6 @@ function useStreamClient(session, loadingSession, isHost, isParticipant) {
       try {
         const { token, userId, userName, userImage } =
           await sessionApi.getStreamToken();
-        console.log("API KEY:", import.meta.env.VITE_STREAM_API_KEY);
-        console.log("TOKEN:", token);
 
         const client = await initializeStreamClient(
           {
