@@ -1,32 +1,63 @@
 import axiosInstance from "../lib/axios.js";
 
+const withAuthHeader = (token) =>
+  token
+    ? {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    : undefined;
+
 export const sessionApi = {
-  createSession: async (data) => {
-    const response = await axiosInstance.post("/sessions", data);
+  createSession: async (data, token) => {
+    const response = await axiosInstance.post(
+      "/sessions",
+      data,
+      withAuthHeader(token)
+    );
     return response.data;
   },
-  getActiveSessions: async () => { 
-    const response = await axiosInstance.get("/sessions/active");
+  getActiveSessions: async (token) => {
+    const response = await axiosInstance.get(
+      "/sessions/active",
+      withAuthHeader(token)
+    );
     return response.data;
   },
-  getMyRecentSessions: async () => {
-    const response = await axiosInstance.get("/sessions/my-recent");
+  getMyRecentSessions: async (token) => {
+    const response = await axiosInstance.get(
+      "/sessions/my-recent",
+      withAuthHeader(token)
+    );
     return response.data;
   },
-  getSessionById: async (id) => {
-    const response = await axiosInstance.get(`/sessions/${id}`);
+  getSessionById: async (id, token) => {
+    const response = await axiosInstance.get(
+      `/sessions/${id}`,
+      withAuthHeader(token)
+    );
     return response.data;
   },
-  joinSession: async (id) => {
-    const response = await axiosInstance.post(`/sessions/${id}/join`);
+  joinSession: async (id, token) => {
+    const response = await axiosInstance.post(
+      `/sessions/${id}/join`,
+      undefined,
+      withAuthHeader(token)
+    );
     return response.data;
   },
-  endSession: async (id) => {
-    const response = await axiosInstance.post(`/sessions/${id}/end`);
+  endSession: async (id, token) => {
+    const response = await axiosInstance.post(
+      `/sessions/${id}/end`,
+      undefined,
+      withAuthHeader(token)
+    );
     return response.data;
   },
-  getStreamToken: async () => {
-    const response = await axiosInstance.get("/chat/token");
+  getStreamToken: async (token) => {
+    const response = await axiosInstance.get(
+      "/chat/token",
+      withAuthHeader(token)
+    );
     return response.data;
   },
 };
