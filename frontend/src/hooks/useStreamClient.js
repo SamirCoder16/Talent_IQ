@@ -6,6 +6,7 @@ import {
   initializeStreamClient,
   disconnectStreamClient,
 } from "../lib/stream.js";
+import { useAuth } from "@clerk/clerk-react";
 
 function useStreamClient(session, loadingSession, isHost, isParticipant) {
   const [streamClient, setStreamClient] = useState(null);
@@ -13,6 +14,7 @@ function useStreamClient(session, loadingSession, isHost, isParticipant) {
   const [chatClient, setChatClient] = useState(null);
   const [channel, setChannel] = useState(null);
   const [isInitializingCall, setIsInitializingCall] = useState(true);
+  const { getToken } = useAuth();
 
   useEffect(() => {
     let videoCall = null;
@@ -24,14 +26,15 @@ function useStreamClient(session, loadingSession, isHost, isParticipant) {
       if (session.status === "completed") return;
 
       try {
-        const { token, userId, userName, userImage } =
-          await sessionApi.getStreamToken();
+        const authToken = await getToken();
+        const { token, userId, name, profileImage } =
+          await sessionApi.getStreamToken(authToken);
 
         const client = await initializeStreamClient(
           {
             id: userId,
-            name: userName,
-            image: userImage,
+            name,
+            image: profileImage,
           },
           token
         );
@@ -48,8 +51,8 @@ function useStreamClient(session, loadingSession, isHost, isParticipant) {
         await chatClientInstance.connectUser(
           {
             id: userId,
-            name: userName,
-            image: userImage,
+            name,
+            image: profileImage,
           },
           token
         );

@@ -22,7 +22,9 @@ app.use(
     credentials: true,
   })
 );
-app.use(clerkMiddleware()); // this adds auth field to request object : req.auth();
+app.use(clerkMiddleware({ 
+  authorizedParties: ["https://talent-iq-teal.vercel.app", "http://localhost:5173"]
+}));
 app.use(morgan("dev"));
 
 await connectDB();

@@ -12,7 +12,7 @@ export const getStreamtoken = async (req, res) => {
       profileImage: req.user.profileImage,
     });
   } catch (error) {
-    res.status(500).json({ message: "Error generating Stream token.", error } );
     logger.error("Error generating Stream token:", error);
+    res.status(500).json({ message: "Error generating Stream token." });
   }
 };
